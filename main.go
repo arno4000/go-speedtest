@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"io"
 	"io/ioutil"
 	"log"
@@ -37,49 +36,41 @@ func main() {
 	ping, download, upload, measureTime := testInternetSpeed()
 
 	if results[0].MeasureTime == "" {
-		fmt.Println("if")
 		results[0].Ping = ping
 		results[0].Download = download
 		results[0].Upload = upload
 		results[0].MeasureTime = measureTime
 	} else if results[1].MeasureTime == "" {
-		fmt.Println("if")
 		results[1].Ping = ping
 		results[1].Download = download
 		results[1].Upload = upload
 		results[1].MeasureTime = measureTime
 	} else if results[2].MeasureTime == "" {
-		fmt.Println("if")
 		results[2].Ping = ping
 		results[2].Download = download
 		results[2].Upload = upload
 		results[2].MeasureTime = measureTime
 	} else if results[3].MeasureTime == "" {
-		fmt.Println("if")
 		results[3].Ping = ping
 		results[3].Download = download
 		results[3].Upload = upload
 		results[3].MeasureTime = measureTime
 	} else if results[4].MeasureTime == "" {
-		fmt.Println("if")
 		results[4].Ping = ping
 		results[4].Download = download
 		results[4].Upload = upload
 		results[4].MeasureTime = measureTime
 	} else if results[5].MeasureTime == "" {
-		fmt.Println("if")
 		results[5].Ping = ping
 		results[5].Download = download
 		results[5].Upload = upload
 		results[5].MeasureTime = measureTime
 	} else if results[6].MeasureTime == "" {
-		fmt.Println("if")
 		results[6].Ping = ping
 		results[6].Download = download
 		results[6].Upload = upload
 		results[6].MeasureTime = measureTime
 	} else {
-		fmt.Println("else")
 		temp1 := results[1]
 		temp2 := results[2]
 		temp3 := results[3]
@@ -124,7 +115,7 @@ func lineShowLabel() *charts.Line {
 			Link:     "https://github.com/go-echarts/go-echarts",
 		}),
 	)
-	fruits := []string{
+	values := []string{
 		time.Now().Add(time.Minute * 0).Format("15:04:05"),
 		time.Now().Add(time.Minute * 20).Format("15:04:05"),
 		time.Now().Add(time.Minute * 40).Format("15:04:05"),
@@ -132,18 +123,18 @@ func lineShowLabel() *charts.Line {
 		time.Now().Add(time.Minute * 80).Format("15:04:05"),
 		time.Now().Add(time.Minute * 100).Format("15:04:05"),
 		time.Now().Add(time.Minute * 120).Format("15:04:05")}
-	testt := make([]opts.LineData, 0)
+	diagramValues := make([]opts.LineData, 0)
 
-	testt = append(testt, opts.LineData{Value: results[0].Download})
-	testt = append(testt, opts.LineData{Value: results[1].Download})
-	testt = append(testt, opts.LineData{Value: results[2].Download})
-	testt = append(testt, opts.LineData{Value: results[3].Download})
-	testt = append(testt, opts.LineData{Value: results[4].Download})
-	testt = append(testt, opts.LineData{Value: results[5].Download})
-	testt = append(testt, opts.LineData{Value: results[6].Download})
+	diagramValues = append(diagramValues, opts.LineData{Value: results[0].Download})
+	diagramValues = append(diagramValues, opts.LineData{Value: results[1].Download})
+	diagramValues = append(diagramValues, opts.LineData{Value: results[2].Download})
+	diagramValues = append(diagramValues, opts.LineData{Value: results[3].Download})
+	diagramValues = append(diagramValues, opts.LineData{Value: results[4].Download})
+	diagramValues = append(diagramValues, opts.LineData{Value: results[5].Download})
+	diagramValues = append(diagramValues, opts.LineData{Value: results[6].Download})
 
-	line.SetXAxis(fruits).
-		AddSeries("Category A", testt).
+	line.SetXAxis(values).
+		AddSeries("Speedtest", diagramValues).
 		SetSeriesOptions(
 			charts.WithLabelOpts(opts.Label{
 				Show: true,

@@ -1,0 +1,44 @@
+[
+ {
+  "MeasureTime": "23:01:54",
+  "Ping": "21.060256ms",
+  "Download": 42,
+  "Upload": 7
+ },
+ {
+  "MeasureTime": "23:02:02",
+  "Ping": "23.003892ms",
+  "Download": 41,
+  "Upload": 7
+ },
+ {
+  "MeasureTime": "23:02:11",
+  "Ping": "18.734248ms",
+  "Download": 34,
+  "Upload": 7
+ },
+ {
+  "MeasureTime": "23:02:19",
+  "Ping": "15.730129ms",
+  "Download": 43,
+  "Upload": 7
+ },
+ {
+  "MeasureTime": "23:02:26",
+  "Ping": "19.334111ms",
+  "Download": 42,
+  "Upload": 7
+ },
+ {
+  "MeasureTime": "23:02:35",
+  "Ping": "20.527738ms",
+  "Download": 41,
+  "Upload": 7
+ },
+ {
+  "MeasureTime": "23:02:42",
+  "Ping": "21.451618ms",
+  "Download": 43,
+  "Upload": 7
+ }
+]

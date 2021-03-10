@@ -20,7 +20,7 @@ var results = make(Results, 7)
 func main() {
 
 	if _, err := os.Stat("results.json"); err != nil {
-		results[0].Ping = ""
+		results[0].Ping = 0.0
 		results[0].Download = 0.0
 		results[0].Upload = 0.0
 		results[0].MeasureTime = ""
@@ -112,7 +112,7 @@ func lineShowLabel() *charts.Line {
 		charts.WithTitleOpts(opts.Title{
 			Title:    "Measure the Internet Speed of Sh*tcom every 30 minutes",
 			Subtitle: "A litte dirty and buggy tool, that measures the speed of your internet every 30 minutes",
-			Link:     "https://github.com/go-echarts/go-echarts",
+			Link:     "https://github.com/arno4000/go-speedtest",
 		}),
 	)
 	values := []string{
@@ -123,18 +123,20 @@ func lineShowLabel() *charts.Line {
 		time.Now().Add(time.Minute * 80).Format("15:04:05"),
 		time.Now().Add(time.Minute * 100).Format("15:04:05"),
 		time.Now().Add(time.Minute * 120).Format("15:04:05")}
-	diagramValues := make([]opts.LineData, 0)
+	downloadValues := make([]opts.LineData, 0)
+	uploadValues := make([]opts.LineData, 0)
+	pingValues := make([]opts.LineData, 0)
 
-	diagramValues = append(diagramValues, opts.LineData{Value: results[0].Download})
-	diagramValues = append(diagramValues, opts.LineData{Value: results[1].Download})
-	diagramValues = append(diagramValues, opts.LineData{Value: results[2].Download})
-	diagramValues = append(diagramValues, opts.LineData{Value: results[3].Download})
-	diagramValues = append(diagramValues, opts.LineData{Value: results[4].Download})
-	diagramValues = append(diagramValues, opts.LineData{Value: results[5].Download})
-	diagramValues = append(diagramValues, opts.LineData{Value: results[6].Download})
+	for i := 0; i <= 6; i++ {
+		downloadValues = append(downloadValues, opts.LineData{Value: results[i].Download})
+		uploadValues = append(uploadValues, opts.LineData{Value: results[i].Upload})
+		pingValues = append(pingValues, opts.LineData{Value: results[i].Ping})
+	}
 
 	line.SetXAxis(values).
-		AddSeries("Speedtest", diagramValues).
+		AddSeries("Download", downloadValues).
+		AddSeries("Upload", uploadValues).
+		AddSeries("Ping", pingValues).
 		SetSeriesOptions(
 			charts.WithLabelOpts(opts.Label{
 				Show: true,
@@ -143,7 +145,7 @@ func lineShowLabel() *charts.Line {
 	return line
 }
 
-func testInternetSpeed() (ping string, download float64, upload float64, measureTime string) {
+func testInternetSpeed() (ping float64, download float64, upload float64, measureTime string) {
 	user, err := speedtest.FetchUserInfo()
 	if err != nil {
 		log.Fatalln(err)
@@ -160,7 +162,7 @@ func testInternetSpeed() (ping string, download float64, upload float64, measure
 		s.PingTest()
 		s.DownloadTest(true)
 		s.UploadTest(true)
-		ping = s.Latency.String()
+		ping = float64(s.Latency.Milliseconds())
 		download = math.Round(s.DLSpeed * 100 / 100)
 		upload = math.Round(s.ULSpeed * 100 / 100)
 	}
@@ -170,7 +172,7 @@ func testInternetSpeed() (ping string, download float64, upload float64, measure
 
 type Results []struct {
 	MeasureTime string  `json:"MeasureTime"`
-	Ping        string  `json:"Ping"`
+	Ping        float64 `json:"Ping"`
 	Download    float64 `json:"Download"`
 	Upload      float64 `json:"Upload"`
 }

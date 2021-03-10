@@ -1,44 +1,44 @@
 [
  {
-  "MeasureTime": "23:01:54",
-  "Ping": "21.060256ms",
+  "MeasureTime": "18:10:21",
+  "Ping": 20,
+  "Download": 31,
+  "Upload": 7
+ },
+ {
+  "MeasureTime": "18:10:33",
+  "Ping": 28,
+  "Download": 36,
+  "Upload": 4
+ },
+ {
+  "MeasureTime": "18:10:42",
+  "Ping": 19,
+  "Download": 33,
+  "Upload": 6
+ },
+ {
+  "MeasureTime": "18:10:51",
+  "Ping": 21,
+  "Download": 36,
+  "Upload": 7
+ },
+ {
+  "MeasureTime": "18:11:00",
+  "Ping": 18,
   "Download": 42,
   "Upload": 7
  },
  {
-  "MeasureTime": "23:02:02",
-  "Ping": "23.003892ms",
-  "Download": 41,
+  "MeasureTime": "18:11:08",
+  "Ping": 17,
+  "Download": 32,
   "Upload": 7
  },
  {
-  "MeasureTime": "23:02:11",
-  "Ping": "18.734248ms",
-  "Download": 34,
-  "Upload": 7
- },
- {
-  "MeasureTime": "23:02:19",
-  "Ping": "15.730129ms",
-  "Download": 43,
-  "Upload": 7
- },
- {
-  "MeasureTime": "23:02:26",
-  "Ping": "19.334111ms",
-  "Download": 42,
-  "Upload": 7
- },
- {
-  "MeasureTime": "23:02:35",
-  "Ping": "20.527738ms",
-  "Download": 41,
-  "Upload": 7
- },
- {
-  "MeasureTime": "23:02:42",
-  "Ping": "21.451618ms",
-  "Download": 43,
-  "Upload": 7
+  "MeasureTime": "18:11:34",
+  "Ping": 18,
+  "Download": 38,
+  "Upload": 4
  }
 ]

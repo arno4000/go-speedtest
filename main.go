@@ -116,13 +116,15 @@ func lineShowLabel() *charts.Line {
 		}),
 	)
 	values := []string{
-		time.Now().Add(time.Minute * 0).Format("15:04:05"),
-		time.Now().Add(time.Minute * 20).Format("15:04:05"),
-		time.Now().Add(time.Minute * 40).Format("15:04:05"),
-		time.Now().Add(time.Minute * 60).Format("15:04:05"),
-		time.Now().Add(time.Minute * 80).Format("15:04:05"),
-		time.Now().Add(time.Minute * 100).Format("15:04:05"),
-		time.Now().Add(time.Minute * 120).Format("15:04:05")}
+
+		results[0].MeasureTime,
+		results[1].MeasureTime,
+		results[2].MeasureTime,
+		results[3].MeasureTime,
+		results[4].MeasureTime,
+		results[5].MeasureTime,
+		results[6].MeasureTime,
+	}
 	downloadValues := make([]opts.LineData, 0)
 	uploadValues := make([]opts.LineData, 0)
 	pingValues := make([]opts.LineData, 0)
